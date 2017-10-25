@@ -6,6 +6,7 @@ import {NavigationBarComponent} from './shared/navigation-bar/navigation-bar.com
 import {appRoutes} from './app.routing';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
+import {VolunteerModule} from './volunteer/volunteer.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HomeComponent} from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    appRoutes
+    appRoutes,
+    VolunteerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
