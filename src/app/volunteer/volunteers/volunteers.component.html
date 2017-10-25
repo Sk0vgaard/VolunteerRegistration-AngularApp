@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <ul>
-        <label>Volunteers:</label>
-        <li class="list-group-item">
-          <i class="fa fa-male" aria-hidden="true"></i> Volunteer 1</li>
-      </ul>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action"
+           *ngFor="let volunteer of volunteers"
+        (click)="selectVolunteer(volunteer)">
+          <h5><i class="fa fa-male" aria-hidden="true"></i> {{volunteer.name}}</h5>
+        </a>
+      </div>
     </div>
     <div class="col-md-8">
-      <app-volunteer></app-volunteer>
+      <app-volunteer-detail [volunteer]="selectedVolunteer"></app-volunteer-detail>
     </div>
   </div>
   <div class="row">
