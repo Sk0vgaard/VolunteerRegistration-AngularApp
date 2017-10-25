@@ -3,9 +3,14 @@
     <div class="col-md-4">
       <div class="list-group">
         <a class="list-group-item list-group-item-action"
-           *ngFor="let volunteer of volunteers"
-        (click)="selectVolunteer(volunteer)">
-          <h5><i class="fa fa-male" aria-hidden="true"></i> {{volunteer.name}}</h5>
+           *ngFor="let volunteer of volunteers; let i = index"
+           (click)="selectVolunteer(volunteer, i)"
+           [class.active]="i == selectedRow">
+          <h5><i class="fa fa-male" aria-hidden="true"></i> {{volunteer.name}}
+            <button class="btn btn-outline-danger pull-right">
+              <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button class="btn btn-outline-warning pull-right">
+              <i class="fa fa-pencil" aria-hidden="true"></i></button></h5>
         </a>
       </div>
     </div>
@@ -18,12 +23,7 @@
       <button class="btn btn-outline-success">
         <i class="fa fa-plus" aria-hidden="true"></i> New
       </button>
-      <button class="btn btn-outline-info">
-        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-      </button>
-      <button class="btn btn-outline-danger">
-        <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-      </button>
+
     </div>
   </div>
 </div>

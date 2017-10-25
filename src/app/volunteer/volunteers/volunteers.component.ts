@@ -10,6 +10,7 @@ import {VolunteerService} from '../shared/volunteer.service';
 export class VolunteersComponent implements OnInit {
   volunteers: Volunteer[];
   selectedVolunteer: Volunteer;
+  selectedRow: number;
 
   constructor(private volunteerService: VolunteerService) { }
 
@@ -19,7 +20,8 @@ export class VolunteersComponent implements OnInit {
       .subscribe(volunteers => this.volunteers = volunteers);
   }
 
-  selectVolunteer(volunteer: Volunteer) {
+  selectVolunteer(volunteer: Volunteer, selectedRow: number) {
     this.selectedVolunteer = volunteer;
+    this.selectedRow = selectedRow;
   }
 }

@@ -9,8 +9,11 @@ import {Volunteer} from '../../shared/volunteer.model';
 export class VolunteerDetailComponent implements OnInit {
   @Input()
   volunteer: Volunteer;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 }
