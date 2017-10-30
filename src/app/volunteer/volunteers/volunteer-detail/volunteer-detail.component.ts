@@ -43,6 +43,7 @@ export class VolunteerDetailComponent implements OnInit {
       phone: values.phone
     }).subscribe(volunteer => {
       this.volunteer = volunteer,
+        this.volunteerGroup.reset()
         this.isUpdateable = false,
         this.volunteerComponent.isUpdateClicked = false,
       this.volunteerComponent.updateListOfVolunteers();
@@ -53,5 +54,15 @@ export class VolunteerDetailComponent implements OnInit {
     this.isUpdateable = false;
     this.volunteerComponent.isUpdateClicked = false;
     this.volunteerGroup.reset();
+  }
+
+  isInvalid(controlName: string) {
+    const control = this.volunteerGroup.controls[controlName];
+    return control.invalid && (control.touched || control.dirty);
+  }
+
+  isValid(controlName: string) {
+    const control = this.volunteerGroup.controls[controlName];
+    return !control.invalid && (control.touched || control.dirty);
   }
 }
