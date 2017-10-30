@@ -18,4 +18,9 @@ export class VolunteerService {
   create(volunteer: Volunteer): Observable<Volunteer> {
     return this.http.post<Volunteer>(url, volunteer);
   }
+
+  update(volunteer: Volunteer): Observable<Volunteer> {
+    console.log(volunteer.id);
+    return this.http.put<Volunteer>(url + '/' + volunteer.id, volunteer);
+  }
 }

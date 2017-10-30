@@ -1,10 +1,31 @@
 <div class="row" *ngIf="volunteer">
-  <div class="card col-md-6">
+  <div *ngIf="!isUpdateable" class="card col-md-6">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Name: {{volunteer.name}}</li>
       <li class="list-group-item">Email: {{volunteer.email}}</li>
       <li class="list-group-item">Phone: {{volunteer.phone}}</li>
     </ul>
+  </div>
+  <div *ngIf="isUpdateable" class="card col-md-6">
+    <form (ngSubmit)="updateVolunteer()" [formGroup]="volunteerGroup" novalidate>
+    <div class="form-group">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Name: <input type="text" formControlName="name" placeholder="{{volunteer.name}}">
+        </li>
+        <li class="list-group-item">
+          Email: <input type="text" formControlName="email" placeholder="{{volunteer.email}}">
+        </li>
+        <li class="list-group-item">
+          Phone: <input type="text" formControlName="phone" placeholder="{{volunteer.phone}}">
+        </li>
+      </ul>
+      <div>
+        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button class="btn btn-outline-warning">Cancel</button>
+      </div>
+    </div>
+    </form>
   </div>
   <div class="col-md-6">
     <img src="http://via.placeholder.com/150x150" alt="..." class="img-thumbnail">

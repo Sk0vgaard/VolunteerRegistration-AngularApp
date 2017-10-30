@@ -9,13 +9,14 @@
           <h5><i class="fa fa-male" aria-hidden="true"></i> {{volunteer.name}}
             <button class="btn btn-outline-danger pull-right">
               <i class="fa fa-trash-o" aria-hidden="true"></i></button>
-            <button class="btn btn-outline-warning pull-right">
+            <button class="btn btn-outline-warning pull-right"
+                    (click)="setUpdate($event)">
               <i class="fa fa-pencil" aria-hidden="true"></i></button></h5>
         </a>
       </div>
     </div>
     <div class="col-md-8">
-      <app-volunteer-detail [volunteer]="selectedVolunteer"></app-volunteer-detail>
+      <app-volunteer-detail [volunteer]="selectedVolunteer" [isUpdateable]="isUpdateClicked"></app-volunteer-detail>
     </div>
   </div>
   <div class="row">
