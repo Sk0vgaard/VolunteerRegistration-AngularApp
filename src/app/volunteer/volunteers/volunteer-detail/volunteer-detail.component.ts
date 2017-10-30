@@ -34,6 +34,7 @@ export class VolunteerDetailComponent implements OnInit {
 
 
   updateVolunteer() {
+    console.log('Saved has been clicked!');
     const values = this.volunteerGroup.value;
     this.volunteerService.update({
       id: this.volunteer.id,
@@ -46,5 +47,11 @@ export class VolunteerDetailComponent implements OnInit {
         this.volunteerComponent.isUpdateClicked = false,
       this.volunteerComponent.updateListOfVolunteers();
     });
+  }
+
+  cancelUpdate() {
+    this.isUpdateable = false;
+    this.volunteerComponent.isUpdateClicked = false;
+    this.volunteerGroup.reset();
   }
 }
