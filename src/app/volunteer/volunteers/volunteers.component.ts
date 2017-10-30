@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Volunteer} from '../shared/volunteer.model';
 import {VolunteerService} from '../shared/volunteer.service';
 
@@ -35,5 +35,11 @@ export class VolunteersComponent implements OnInit {
   updateListOfVolunteers(){
     this.volunteerService.get()
       .subscribe(volunteers => this.volunteers = volunteers);
+  }
+
+  deleteVolunteer($event , volunteer: Volunteer) {
+    console.log('Delete from component' + volunteer);
+    this.volunteerService.delete(volunteer.id).subscribe();
+    $event.stopPropagation();
   }
 }

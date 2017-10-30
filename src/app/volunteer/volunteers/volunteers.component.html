@@ -7,7 +7,8 @@
            (click)="selectVolunteer(volunteer, i)"
            [class.active]="i == selectedRow">
           <h5><i class="fa fa-male" aria-hidden="true"></i> {{volunteer.name}}
-            <button class="btn btn-outline-danger pull-right">
+            <button class="btn btn-outline-danger pull-right"
+            (click)="deleteVolunteer($event, volunteer)">
               <i class="fa fa-trash-o" aria-hidden="true"></i></button>
             <button class="btn btn-outline-warning pull-right"
                     (click)="setUpdate($event)">

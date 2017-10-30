@@ -23,4 +23,9 @@ export class VolunteerService {
     console.log(volunteer.id);
     return this.http.put<Volunteer>(url + '/' + volunteer.id, volunteer);
   }
+
+  delete(id: number): Observable<boolean> {
+    console.log(url + '/' + id);
+    return this.http.delete<Boolean>(url + '/' + id);
+  }
 }
