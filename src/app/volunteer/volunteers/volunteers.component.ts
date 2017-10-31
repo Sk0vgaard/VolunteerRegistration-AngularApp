@@ -38,8 +38,8 @@ export class VolunteersComponent implements OnInit {
   }
 
   deleteVolunteer($event , volunteer: Volunteer) {
-    console.log('Delete from component' + volunteer);
-    this.volunteerService.delete(volunteer.id).subscribe();
+    this.volunteerService.delete(volunteer.id).subscribe(() => this.updateListOfVolunteers());
+    this.selectedVolunteer = null;
     $event.stopPropagation();
   }
 }

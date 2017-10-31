@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Volunteer} from '../../shared/volunteer.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {VolunteerService} from '../../shared/volunteer.service';
-import {Router} from '@angular/router';
 import {VolunteersComponent} from "../volunteers.component";
 
 @Component({
@@ -43,7 +42,7 @@ export class VolunteerDetailComponent implements OnInit {
       phone: values.phone
     }).subscribe(volunteer => {
       this.volunteer = volunteer,
-        this.volunteerGroup.reset()
+        this.volunteerGroup.reset(),
         this.isUpdateable = false,
         this.volunteerComponent.isUpdateClicked = false,
       this.volunteerComponent.updateListOfVolunteers();

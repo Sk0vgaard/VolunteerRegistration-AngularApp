@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
+      <button class="btn btn-outline-info"
+      routerLink="/volunteers">Back</button>
       <form (ngSubmit)="saveVolunteer()"
               [formGroup]="volunteerGroup" novalidate>
         <div class="form-group">
