@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div class="list-group">
+      <div *ngIf="volunteers.length > 0; else noVolunteers" class="list-group">
         <a class="list-group-item list-group-item-action"
            *ngFor="let volunteer of volunteers; let i = index"
            (click)="selectVolunteer(volunteer, i)"
@@ -15,6 +15,9 @@
               <i class="fa fa-pencil" aria-hidden="true"></i></button></h5>
         </a>
       </div>
+      <ng-template #noVolunteers>
+        <h1>No volunteers!</h1>
+      </ng-template>
     </div>
     <div class="col-md-8">
       <app-volunteer-detail [volunteer]="selectedVolunteer" [isUpdateable]="isUpdateClicked"></app-volunteer-detail>
