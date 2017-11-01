@@ -7,22 +7,19 @@ import {appRoutes} from './app.routing';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {VolunteerModule} from './volunteer/volunteer.module';
-import { GuildsComponent } from './guild/guilds/guilds.component';
-import { GuildDetailComponent } from './guild/guilds/guild-detail/guild-detail.component';
-
+import {GuildModule} from './guild/guild.module';
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     PageNotFoundComponent,
-    HomeComponent,
-    GuildsComponent,
-    GuildDetailComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     appRoutes,
-    VolunteerModule
+    VolunteerModule,
+    GuildModule
   ],
   providers: [],
   bootstrap: [AppComponent]
