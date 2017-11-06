@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from "rxjs/Observable";
 import {Guild} from "./guild.model";
 
-const url = environment.RestAPI + '/guilds;';
+const url = environment.RestAPI + '/guildsOnVolunteer;';
 
 @Injectable()
 export class GuildService {

@@ -4,7 +4,7 @@ import {GuildsComponent} from './guilds/guilds.component';
 export const guildRoutes = RouterModule.forRoot(
   [
     {
-      path: 'guilds',
+      path: 'guildsOnVolunteer',
       component: GuildsComponent
     }
   ]
