@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GuildsComponent } from './guilds/guilds.component';
 import {guildRoutes} from './guild.routing';
 import {HttpClientModule} from '@angular/common/http';
+import { GuildDetailComponent } from './guilds/guild-detail/guild-detail.component';
 
 
 @NgModule({
@@ -11,6 +12,6 @@ import {HttpClientModule} from '@angular/common/http';
     guildRoutes,
     HttpClientModule
   ],
-  declarations: [GuildsComponent]
+  declarations: [GuildsComponent, GuildDetailComponent]
 })
 export class GuildModule { }
