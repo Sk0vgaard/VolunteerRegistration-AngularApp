@@ -17,7 +17,8 @@ export class GuildsComponent implements OnInit {
   constructor(private guildService: GuildService) { }
 
   ngOnInit() {
-  this.updateListOfGuilds();
+    this.guilds = [];
+    this.updateListOfGuilds();
   }
 
   selectedGuild(guild: Guild, selectedRow: number) {

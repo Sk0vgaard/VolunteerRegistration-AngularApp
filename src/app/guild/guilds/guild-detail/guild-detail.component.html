@@ -1,3 +1,7 @@
-<p>
-  guild-detail works!
-</p>
+<div class="row" *ngIf="volunteer">
+  <div *ngIf="!isUpdateable" class="card col-md-6">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: {{guild.name}}</li>
+    </ul>
+  </div>
+</div>
