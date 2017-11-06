@@ -1,11 +1,15 @@
+<div *ngIf="guilds != null && guilds.length != 0">
+  <div class="card">
+    <div class="card-body">
 
-<!--<div>-->
-  <!--Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World-->
-<!--</div>-->
-  <div>
-    <ul class="list-group" *ngFor="let guild of guilds">
-      <li class="list-group-item">
-        {{guild.name}}
-      </li>
-    </ul>
+      <ul class="list-group" *ngFor="let guild of guilds">
+        <li class="list-group-flush">
+          {{guild.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="guilds == null || guilds.length == 0">
+  No Guilds
 </div>
