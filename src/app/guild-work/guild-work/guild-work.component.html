@@ -1,3 +1,51 @@
-<p>
-  guild-work works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">Volunteers</div>
+    <div class="col-md-3">Guilds</div>
+    <div class="col-md-3">Period</div>
+    <div class="col-md-3">Selected Details</div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let volunteer of volunteers; let i = index"
+        (click)="selectVolunteer(volunteer, i)">
+          {{volunteer.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="list-group" *ngFor="let guild of guilds; let i = index">
+        <li class="list-group-item">
+          Hey you
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      Period
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          Volunteer:
+        </div>
+        <div class="card-body">
+          <div *ngIf="volunteer != null">
+            {{volunteer.name}}
+          </div>
+          <div *ngIf="volunteer == null">
+            No volunteer selected
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Guild:
+        </div>
+        <div class="card-body">
+          Some data here
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
