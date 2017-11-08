@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Guild} from "../shared/guild.model";
-import {GuildService} from "../shared/guild.service";
+import {Guild} from '../shared/guild.model';
+import {GuildService} from '../shared/guild.service';
 
 @Component({
   selector: 'app-guilds',
@@ -10,7 +10,7 @@ import {GuildService} from "../shared/guild.service";
 export class GuildsComponent implements OnInit {
 
   guilds: Guild[];
-  selectGuild: Guild;
+  selectedGuild: Guild;
   selectedRow: number;
   isUpdateClicked = false;
 
@@ -18,11 +18,14 @@ export class GuildsComponent implements OnInit {
 
   ngOnInit() {
     this.guilds = [];
-    this.updateListOfGuilds();
+    this.guildService.get()
+      .subscribe(guilds => this.guilds = guilds);
   }
 
-  selectedGuild(guild: Guild, selectedRow: number) {
-    this.selectGuild = guild;
+  selectGuild(guild: Guild, selectedRow: number) {
+    console.log(guild);
+    console.log(selectedRow);
+    this.selectedGuild = guild;
     this.selectedRow = selectedRow;
     this.isUpdateClicked = false;
   }
@@ -37,10 +40,10 @@ export class GuildsComponent implements OnInit {
       .subscribe(guilds => this.guilds = guilds);
   }
 
-  // deleteGuild($event, guild: Guild) {
-  //   this.guildService.delete(guild.id)
-  //     .subscribe(() => this.updateListOfGuilds());
-  //   this.selectedGuild = null;
-  //   $event.stopPropagation();
-  // }
+  deleteGuild($event, guild: Guild) {
+    this.guildService.delete(guild.id)
+      .subscribe(() => this.updateListOfGuilds());
+    this.selectedGuild = null;
+    $event.stopPropagation();
+  }
 }

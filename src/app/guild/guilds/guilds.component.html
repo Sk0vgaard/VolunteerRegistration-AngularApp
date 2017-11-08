@@ -5,10 +5,10 @@
            class="list-group">
         <a class="list-group-item list-group-item-action"
             *ngFor="let guild of guilds; let i = index"
-            (click)="selectedGuild(guild, i)"
+            (click)="selectGuild(guild, i)"
             [class.active]="i == selectedRow">
           <h5>
-            <i class="fa fa-male" aria-hidden="true"></i> {{guild.name}}
+            <i class="fa fa-users" aria-hidden="true"></i> {{guild.name}}
             <button class="btn btn-outline-danger pull-right"
             (click)="deleteGuild($event, guild)">
               <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -27,9 +27,7 @@
       </ng-template>
     </div>
     <div class="col-md-8">
-      <app-guild-detail>
-
-      </app-guild-detail>
+      <app-guild-detail [guild]="selectedGuild" [isUpdateable]="isUpdateClicked"></app-guild-detail>
     </div>
   </div>
   <div class="row">
