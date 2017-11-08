@@ -8,6 +8,7 @@ import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.comp
 import {HomeComponent} from './home/home.component';
 import {VolunteerModule} from './volunteer/volunteer.module';
 import {GuildModule} from './guild/guild.module';
+import {GuildWorkModule} from './guild-work/guild-work.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import {GuildModule} from './guild/guild.module';
     BrowserModule,
     appRoutes,
     VolunteerModule,
-    GuildModule
+    GuildModule,
+    GuildWorkModule
   ],
   providers: [],
   bootstrap: [AppComponent]
