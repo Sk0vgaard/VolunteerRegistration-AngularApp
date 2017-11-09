@@ -2,8 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Guild} from '../../guild/shared/guild.model';
 import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
-import {GuildService} from '../../guild/shared/guild.service';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-guild-work',
@@ -14,12 +12,11 @@ export class GuildWorkComponent implements OnInit {
 
   guilds: Guild[];
   volunteers: Volunteer[];
+  startMoment: Date = new Date();
+  endMoment: Date = new Date();
 
   volunteer: Volunteer;
   selectedRow: number;
-
-  @Input()
-  model;
 
   constructor(private volunteerService: VolunteerService) { }
 
@@ -33,7 +30,7 @@ export class GuildWorkComponent implements OnInit {
     this.volunteerService.get().subscribe(volunteers => this.volunteers = volunteers);
   }
 
-  selectVolunteer(volunteer: Volunteer, index: number){
+  selectVolunteer(volunteer: Volunteer, index: number) {
     this.volunteer = volunteer;
     this.selectedRow = index;
   }
