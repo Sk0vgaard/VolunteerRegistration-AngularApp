@@ -2,15 +2,25 @@
   <div class="row">
     <div class="col-md-4">
       <button class="btn btn-outline-info"
-      routerLink="/volunteers">Back</button>
+              routerLink="/volunteers">Back</button>
+    </div>
+    <div class="col-md-4">
+      <h4>Selected Guilds</h4>
+    </div>
+    <div class="col-md-4">
+      <h4>Available Guilds</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
       <form (ngSubmit)="saveVolunteer()"
-              [formGroup]="volunteerGroup" novalidate>
+            [formGroup]="volunteerGroup" novalidate>
         <div class="form-group">
           <input class="form-control form-control-lg"
                  formControlName="name"
                  type="text"
                  placeholder="Enter your name"
-          [ngClass]="{
+                 [ngClass]="{
           'is-invalid':isInvalid('name'),
           'is-valid':isValid('name')}">
           <input class="form-control"
@@ -28,12 +38,22 @@
           'is-invalid':isInvalid('phone'),
           'is-valid':isValid('phone')}">
           <button class="btn btn-outline-danger pull-right"
-          routerLink="/volunteers">Cancel</button>
+                  routerLink="/volunteers">Cancel</button>
           <button class="btn btn-outline-success pull-right"
                   [disabled]="volunteerGroup.invalid"
                   type="submit">Create</button>
         </div>
       </form>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <ul class="list-group" *ngFor="let guild of availableGuilds; let i = index">
+        <li class="list-group-item" (click)="selectGuild(guild, i)">
+          {{guild.name}}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

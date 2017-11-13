@@ -17,6 +17,7 @@ export class VolunteersComponent implements OnInit {
 
 
   ngOnInit() {
+    this.volunteers = [];
     this.volunteerService.get()
       .subscribe(volunteers => this.volunteers = volunteers);
   }

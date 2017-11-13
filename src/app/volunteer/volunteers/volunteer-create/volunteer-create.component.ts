@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {VolunteerService} from '../../shared/volunteer.service';
+import {Guild} from '../../../guild/shared/guild.model';
 
 @Component({
   selector: 'app-volunteer-create',
@@ -10,6 +11,8 @@ import {VolunteerService} from '../../shared/volunteer.service';
 export class VolunteerCreateComponent implements OnInit {
 
   volunteerGroup: FormGroup;
+  availableGuilds: Guild[];
+  selectedGuilds: Guild[];
 
   constructor(private fb: FormBuilder,
               private volunteerService: VolunteerService) {
@@ -21,6 +24,8 @@ export class VolunteerCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedGuilds = [];
+    this.availableGuilds = [{name: 'Guild 1'}, {name: 'Guild 2'}, {name: 'Guild 3'}];
   }
 
   saveVolunteer() {
@@ -42,5 +47,10 @@ export class VolunteerCreateComponent implements OnInit {
   isValid(controlName: string) {
     const control = this.volunteerGroup.controls[controlName];
     return !control.invalid && (control.touched || control.dirty);
+  }
+
+  selectGuild(guild: Guild, index: number) {
+    this.selectedGuilds.push(guild);
+    this.availableGuilds.splice(index, 1);
   }
 }
