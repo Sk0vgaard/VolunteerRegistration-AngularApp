@@ -4,6 +4,7 @@ import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
 import {GuildService} from '../../guild/shared/guild.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {GuildWork} from '../shared/guildWork.model';
 
 @Component({
   selector: 'app-guild-work',
@@ -77,6 +78,13 @@ export class GuildWorkComponent implements OnInit {
   }
 
   saveGuildWork() {
-    // this.guild.
+    const guildWork = {
+      guildId: this.guild.id,
+      volunteerId: this.volunteer.id,
+      startDate: this.startMoment,
+      endDate: this.endMoment
+    };
+    this.guild.guildWorks.push(guildWork);
+    // Call guildService here to update.
   }
 }
