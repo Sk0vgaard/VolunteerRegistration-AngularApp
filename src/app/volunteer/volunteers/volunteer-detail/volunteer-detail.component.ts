@@ -3,6 +3,7 @@ import {Volunteer} from '../../shared/volunteer.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {VolunteerService} from '../../shared/volunteer.service';
 import {VolunteersComponent} from "../volunteers.component";
+import {Guild} from "../../../guild/shared/guild.model";
 
 @Component({
   selector: 'app-volunteer-detail',
@@ -14,6 +15,8 @@ export class VolunteerDetailComponent implements OnInit {
   volunteer: Volunteer;
   @Input()
   isUpdateable = false;
+
+  guildsOnVolunteer: Guild[];
 
   volunteerGroup: FormGroup;
 
@@ -28,7 +31,7 @@ export class VolunteerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.guildsOnVolunteer = [{name : 'Fake1'}, {name: 'FakeTwo'}];
   }
 
 
