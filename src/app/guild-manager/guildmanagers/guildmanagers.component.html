@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div *ngIf="guildManagers.length > 0; else noVolunteers" class="list-group">
+      <div *ngIf="guildManagers.length > 0; else noGuildManagers" class="list-group">
         <a class="list-group-item list-group-item-action"
            *ngFor="let guildmanager of guildManagers; let i = index"
            (click)="selectGuildmanager(guildmanager, i)"
@@ -15,17 +15,17 @@
               <i class="fa fa-pencil" aria-hidden="true"></i></button></h5>
         </a>
       </div>
-      <ng-template #noVolunteers>
+      <ng-template #noGuildManagers>
         <h1>No Guildmanagers!</h1>
       </ng-template>
     </div>
     <div class="col-md-8">
+      <app-gm-detail [guildManager]="selectedManager" [isUpdateable]="isUpdateClicked"></app-gm-detail>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
-      <button class="btn btn-outline-success"
-              >
+      <button class="btn btn-outline-success">
         <i class="fa fa-plus" aria-hidden="true"></i> New
       </button>
     </div>
