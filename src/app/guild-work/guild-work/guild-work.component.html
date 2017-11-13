@@ -16,8 +16,8 @@
     </div>
     <div class="col-md-3">
       <ul class="list-group" *ngFor="let guild of guilds; let i = index">
-        <li class="list-group-item">
-          Hey you
+        <li class="list-group-item" (click)="selectGuild(guild, i)">
+          {{guild.name}}
         </li>
       </ul>
     </div>
@@ -46,7 +46,12 @@
           Guild:
         </div>
         <div class="card-body">
-          Some data here
+          <div *ngIf="guild != null">
+            {{guild.name}}
+          </div>
+          <div *ngIf="guild == null">
+            No guild selected
+          </div>
         </div>
       </div>
       <div class="card">
