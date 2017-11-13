@@ -14,7 +14,9 @@ export class GuildmanagersComponent implements OnInit {
   selectedRow: number;
   isUpdateClicked = false;
 
-  constructor(private guildManagerService: GuildmanagerService) {}
+  constructor(private guildManagerService: GuildmanagerService) {
+    this.guildManagers = [];
+  }
 
   updateListOfVolunteers() {
     this.guildManagerService.get()
