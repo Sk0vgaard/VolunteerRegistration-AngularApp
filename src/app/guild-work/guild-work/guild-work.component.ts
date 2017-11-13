@@ -68,4 +68,8 @@ export class GuildWorkComponent implements OnInit {
   setEnd() {
     this.showEnd = true;
   }
+
+  saveGuildWork() {
+    console.log('Save guildWork clicked!');
+  }
 }
