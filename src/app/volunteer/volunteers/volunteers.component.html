@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div *ngIf="volunteers.length > 0; else noVolunteers" class="list-group">
+      <div *ngIf="volunteers.length > 0; else noVolunteers"
+           class="list-group">
         <a class="list-group-item list-group-item-action"
            *ngFor="let volunteer of volunteers; let i = index"
            (click)="selectVolunteer(volunteer, i)"
