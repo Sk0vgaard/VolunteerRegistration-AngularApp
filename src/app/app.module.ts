@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {VolunteerModule} from './volunteer/volunteer.module';
 import {GuildModule} from './guild/guild.module';
 import {GuildWorkModule} from './guild-work/guild-work.module';
+import {ChartsModule} from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {GuildWorkModule} from './guild-work/guild-work.module';
     appRoutes,
     VolunteerModule,
     GuildModule,
-    GuildWorkModule
+    GuildWorkModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
