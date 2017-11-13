@@ -3,6 +3,7 @@ import {Guild} from '../../guild/shared/guild.model';
 import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
 import {GuildService} from '../../guild/shared/guild.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-guild-work',
@@ -25,7 +26,8 @@ export class GuildWorkComponent implements OnInit {
   guild: Guild;
   selectedGuildRow: number;
 
-  constructor(private volunteerService: VolunteerService, private guildService: GuildService) { }
+
+  constructor(private volunteerService: VolunteerService, private guildService: GuildService) {  }
 
   ngOnInit() {
     this.guilds = [];
@@ -69,7 +71,12 @@ export class GuildWorkComponent implements OnInit {
     this.showEnd = true;
   }
 
+  ableToSave(): boolean {
+    if (this.guild != null && this.volunteer != null && this.showStart && this.showEnd) return true;
+    return false;
+  }
+
   saveGuildWork() {
-    console.log('Save guildWork clicked!');
+    // this.guild.
   }
 }
