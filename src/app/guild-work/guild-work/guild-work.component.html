@@ -22,7 +22,10 @@
       </ul>
     </div>
     <div class="col-md-3">
-      Period
+      <h5>Start time:</h5>
+      <owl-date-time [(ngModel)]="startMoment"></owl-date-time>
+      <h5>End time:</h5>
+      <owl-date-time [(ngModel)]="endMoment"></owl-date-time>
     </div>
     <div class="col-md-3">
       <div class="card">
@@ -44,6 +47,15 @@
         </div>
         <div class="card-body">
           Some data here
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Period:
+        </div>
+        <div class="card-body">
+          Start: {{startMoment.toLocaleDateString()}} {{startMoment.toLocaleTimeString()}}
+          End: {{endMoment.toLocaleDateString()}} {{endMoment.toLocaleTimeString()}}
         </div>
       </div>
     </div>
