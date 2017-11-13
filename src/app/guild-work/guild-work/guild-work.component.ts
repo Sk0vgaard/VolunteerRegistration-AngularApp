@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Guild} from '../../guild/shared/guild.model';
 import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
-import {GuildService} from "../../guild/shared/guild.service";
+import {GuildService} from '../../guild/shared/guild.service';
 
 @Component({
   selector: 'app-guild-work',
@@ -13,8 +13,11 @@ export class GuildWorkComponent implements OnInit {
 
   guilds: Guild[];
   volunteers: Volunteer[];
+
   startMoment: Date = new Date();
   endMoment: Date = new Date();
+  showStart = false;
+  showEnd = false;
 
   volunteer: Volunteer;
   selectedVolunteerRow: number;
@@ -47,5 +50,22 @@ export class GuildWorkComponent implements OnInit {
   selectGuild(guild: Guild, index: number) {
     this.guild = guild;
     this.selectedGuildRow = index;
-}
+  }
+
+  clearSelectedDetails() {
+    this.guild = null;
+    this.volunteer = null;
+    this.showStart = false;
+    console.log(this.showStart);
+    this.showEnd = false;
+  }
+
+  setStart() {
+    this.showStart = true;
+    console.log(this.showStart);
+  }
+
+  setEnd() {
+    this.showEnd = true;
+  }
 }
