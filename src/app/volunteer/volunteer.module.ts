@@ -7,6 +7,7 @@ import {VolunteerService} from './shared/volunteer.service';
 import {HttpClientModule} from '@angular/common/http';
 import {VolunteerCreateComponent} from './volunteers/volunteer-create/volunteer-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { VolunteerGuildsComponent } from './shared/volunteer-guilds/volunteer-guilds.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     [VolunteersComponent,
       VolunteerDetailComponent,
       VolunteerDetailComponent,
-      VolunteerCreateComponent],
+      VolunteerCreateComponent,
+      VolunteerGuildsComponent],
   providers: [VolunteerService]
 })
 export class VolunteerModule { }
