@@ -27,6 +27,8 @@ export class GuildWorkComponent implements OnInit {
   guild: Guild;
   selectedGuildRow: number;
 
+  guildWork: GuildWork;
+
 
   constructor(private volunteerService: VolunteerService, private guildService: GuildService) {  }
 
@@ -35,6 +37,7 @@ export class GuildWorkComponent implements OnInit {
     this.volunteers = [];
     this.updateVolunteerList();
     this.updateGuildList();
+    this.guildWork = new GuildWork;
   }
 
   updateVolunteerList() {
@@ -78,13 +81,15 @@ export class GuildWorkComponent implements OnInit {
   }
 
   saveGuildWork() {
-    const guildWork = {
-      guildId: this.guild.id,
-      volunteerId: this.volunteer.id,
-      startDate: this.startMoment,
-      endDate: this.endMoment
-    };
-    this.guild.guildWorks.push(guildWork);
-    // Call guildService here to update.
+    this.guildWork.volunteerId = this.volunteer.id;
+    this.guildWork.guildId = this.guild.id;
+    this.guildWork.startDate = this.startMoment;
+    this.guildWork.endDate = this.endMoment;
+
+    if(this.guild.guildWorks == null) this.guild.guildWorks = [];
+    this.guild.guildWorks.push(this.guildWork);
+
+    this.guildService.update(this.guild).subscribe(guild => console.log(
+      'Name: ' + guild.name + ' , GuildWork: ' + guild.guildWorks));
   }
 }
