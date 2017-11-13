@@ -4,12 +4,12 @@
       <button class="btn btn-outline-info"
               routerLink="/guildmanagers">Back</button>
     </div>
-    <div class="col-md-4">
-      <h4>Selected Guild</h4>
-    </div>
-    <div class="col-md-4">
-      <h4>Available Guild</h4>
-    </div>
+    <!--<div class="col-md-4">-->
+      <!--<h4>Selected Guild</h4>-->
+    <!--</div>-->
+    <!--<div class="col-md-4">-->
+      <!--<h4>Available Guild</h4>-->
+    <!--</div>-->
   </div>
   <div class="row">
     <div class="col-md-4">
@@ -30,13 +30,6 @@
                  [ngClass]="{
           'is-invalid':isInvalid('email'),
           'is-valid':isValid('email')}">
-          <input class="form-control form-control-sm"
-                 formControlName="phone"
-                 type="text"
-                 placeholder="Enter GM phone"
-                 [ngClass]="{
-          'is-invalid':isInvalid('phone'),
-          'is-valid':isValid('phone')}">
           <button class="btn btn-outline-danger pull-right"
                   routerLink="/guildmanagers">Cancel</button>
           <button class="btn btn-outline-success pull-right"
@@ -45,19 +38,19 @@
         </div>
       </form>
     </div>
-    <div class="col-md-4">
-      <ul class="list-group" *ngFor="let guild of selectedGuilds; let i = index">
-        <li class="list-group-item" (click)="unselectGuild(guild, i)">
-          {{guild.name}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <ul class="list-group" *ngFor="let guild of availableGuilds; let i = index">
-        <li class="list-group-item" (click)="selectGuild(guild, i)">
-          {{guild.name}}
-        </li>
-      </ul>
-    </div>
+    <!--<div class="col-md-4">-->
+      <!--<ul class="list-group" *ngFor="let guild of selectedGuilds; let i = index">-->
+        <!--<li class="list-group-item" (click)="unselectGuild(guild, i)">-->
+          <!--{{guild.name}}-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="col-md-4">-->
+      <!--<ul class="list-group" *ngFor="let guild of availableGuilds; let i = index">-->
+        <!--<li class="list-group-item" (click)="selectGuild(guild, i)">-->
+          <!--{{guild.name}}-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
   </div>
 </div>

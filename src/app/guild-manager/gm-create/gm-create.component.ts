@@ -18,8 +18,7 @@ export class GmCreateComponent implements OnInit {
               private guildManagerService: GuildmanagerService) {
     this.guildManagerGroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.minLength(5)]],
-      phone: ['', [Validators.required, Validators.minLength(8)]]
+      email: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -32,8 +31,7 @@ export class GmCreateComponent implements OnInit {
     const values = this.guildManagerGroup.value;
     this.guildManagerService.create({
       name: values.name,
-      email: values.email,
-      phone: values.phone
+      email: values.email
     }).subscribe(gm => {
       this.guildManagerGroup.reset();
     });
