@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GuildManager} from '../shared/GuildManager';
+import {GuildManager} from '../shared/GuildManager.model';
 import {GuildmanagerService} from '../shared/guildmanager.service';
 
 @Component({

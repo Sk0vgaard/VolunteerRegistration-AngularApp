@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {GuildManager} from '../shared/GuildManager';
+import {GuildManager} from '../shared/GuildManager.model';
 
 @Component({
   selector: 'app-gm-detail',
