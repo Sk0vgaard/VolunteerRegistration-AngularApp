@@ -9,6 +9,8 @@ import {HomeComponent} from './home/home.component';
 import {VolunteerModule} from './volunteer/volunteer.module';
 import {GuildModule} from './guild/guild.module';
 import {GuildWorkModule} from './guild-work/guild-work.module';
+import {GuildManagerModule} from './guild-manager/guild-manager.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import {GuildWorkModule} from './guild-work/guild-work.module';
     appRoutes,
     VolunteerModule,
     GuildModule,
-    GuildWorkModule
+    GuildWorkModule,
+    GuildManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
