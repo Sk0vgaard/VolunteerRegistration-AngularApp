@@ -32,7 +32,6 @@
       </div>
     </div>
     <div class="col-md-3">
-      <form (ngSubmit)="saveGuildWork()">
         <div class="card">
           <div class="card-header">
             Volunteer:
@@ -80,10 +79,9 @@
         </div>
         <hr>
         <div class="pull-right">
-          <button class="btn btn-outline-success">Save</button>
+          <button class="btn btn-outline-success" *ngIf="ableToSave()" (click)="saveGuildWork()">Save</button>
           <button class="btn btn-outline-warning" (click)="clearSelectedDetails()">Clear</button>
         </div>
-      </form>
     </div>
   </div>
 </div>
