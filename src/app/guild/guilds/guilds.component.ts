@@ -8,7 +8,6 @@ import {GuildService} from '../shared/guild.service';
   styleUrls: ['./guilds.component.css']
 })
 export class GuildsComponent implements OnInit {
-
   guilds: Guild[];
   selectedGuild: Guild;
   selectedRow: number;
@@ -41,8 +40,7 @@ export class GuildsComponent implements OnInit {
   }
 
   deleteGuild($event, guild: Guild) {
-    this.guildService.delete(guild.id)
-      .subscribe(() => this.updateListOfGuilds());
+    this.guildService.delete(guild.id).subscribe(() => this.updateListOfGuilds());
     this.selectedGuild = null;
     $event.stopPropagation();
   }
