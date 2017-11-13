@@ -15,4 +15,8 @@ export class GuildmanagerService {
   get(): Observable<GuildManager[]> {
     return this.http.get<GuildManager[]>(url);
   }
+
+  create(gm: GuildManager): Observable<GuildManager> {
+    return this.http.post<GuildManager>(url, gm);
+  }
 }
