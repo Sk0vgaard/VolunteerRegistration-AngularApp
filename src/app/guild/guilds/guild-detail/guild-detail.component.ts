@@ -23,7 +23,7 @@ export class GuildDetailComponent implements OnInit {
               private guildService: GuildService,
               private guildComponent: GuildsComponent) {
     this.guildGroup = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
+      name: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
 
@@ -38,11 +38,11 @@ export class GuildDetailComponent implements OnInit {
       id: this.guild.id,
       name: values.name
     }).subscribe(guild => {
-            this.guild = guild,
-            this.guildGroup.reset(),
-            this.isUpdateable = false,
-            this.guildComponent.updateListOfGuilds();
-      });
+      this.guild = guild,
+        this.guildGroup.reset(),
+        this.isUpdateable = false,
+        this.guildComponent.updateListOfGuilds();
+    });
   }
   cancelUpdate() {
     this.isUpdateable = false;
