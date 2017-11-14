@@ -22,8 +22,6 @@ export class GuildsComponent implements OnInit {
   }
 
   selectGuild(guild: Guild, selectedRow: number) {
-    console.log(guild);
-    console.log(selectedRow);
     this.selectedGuild = guild;
     this.selectedRow = selectedRow;
     this.isUpdateClicked = false;
