@@ -1,5 +1,6 @@
 <div class="row" *ngIf="guild">
-  <div *ngIf="!isUpdateable" class="card col-md-6">
+
+  <div *ngIf="!isUpdateable" class="card col-md-12">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Name: {{guild.name}}</li>
     </ul>
@@ -22,4 +23,9 @@
       </div>
     </form>
   </div>
+
+  <!--<div class="col-md-6">-->
+    <!--<app-guild-work-details></app-guild-work-details>-->
+  <!--</div>-->
 </div>
+

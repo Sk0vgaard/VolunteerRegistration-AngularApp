@@ -26,8 +26,11 @@
         </h1>
       </ng-template>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4">
       <app-guild-detail [guild]="selectedGuild" [isUpdateable]="isUpdateClicked"></app-guild-detail>
+    </div>
+    <div class="col-md-4">
+      <app-guild-work-details [guildWork]="guildWorks" [guild]="selectedGuild"></app-guild-work-details>
     </div>
   </div>
   <div class="row">
