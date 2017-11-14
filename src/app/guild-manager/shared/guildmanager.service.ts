@@ -19,4 +19,8 @@ export class GuildmanagerService {
   create(gm: GuildManager): Observable<GuildManager> {
     return this.http.post<GuildManager>(url, gm);
   }
+
+  delete(guildmanager: GuildManager): Observable<GuildManager> {
+    return this.http.delete<GuildManager>(url + '/' + guildmanager.id);
+  }
 }

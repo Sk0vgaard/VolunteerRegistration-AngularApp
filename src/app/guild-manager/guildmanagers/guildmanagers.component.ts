@@ -18,7 +18,7 @@ export class GuildmanagersComponent implements OnInit {
     this.guildManagers = [];
   }
 
-  updateListOfVolunteers() {
+  updateListOfGuildmanagers() {
     this.guildManagerService.get()
       .subscribe(guildMangers => this.guildManagers = guildMangers);
   }
@@ -30,7 +30,13 @@ export class GuildmanagersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updateListOfVolunteers();
+    this.updateListOfGuildmanagers();
   }
 
+  deleteGuildManager(guildmanager: GuildManager, $event: Event) {
+    this.guildManagerService.delete(guildmanager)
+      .subscribe(() => this.updateListOfGuildmanagers());
+    this.selectedManager = null;
+    $event.stopPropagation();
+  }
 }

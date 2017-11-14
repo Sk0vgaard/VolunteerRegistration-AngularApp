@@ -8,7 +8,7 @@
            [class.active]="i == selectedRow">
           <h5><i class="fa fa-male" aria-hidden="true"></i> {{guildmanager.name}}
             <button class="btn btn-outline-danger pull-right"
-                    >
+            (click)="deleteGuildManager(guildmanager, $event)">
               <i class="fa fa-trash-o" aria-hidden="true"></i></button>
             <button class="btn btn-outline-warning pull-right"
                     >
