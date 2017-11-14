@@ -2,11 +2,12 @@
   <h1>
     Welcome!
   </h1>
-  <button class="btn btn-outline-success">
-    <i class="fa fa-bath" aria-hidden="true"></i> YES!</button>
-  <h2>Made by DeFireFlotteFyre!</h2>
+  <h3>
+    Made by DeFireFlotteFyre!
+  </h3>
   <div>
-    <div style="display: block">
+    <div style="display: block"
+    class="col-md-8">
       <canvas baseChart
               [datasets]="barChartData"
               [labels]="barChartLabels"
@@ -16,6 +17,7 @@
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <button (click)="randomize()">Update</button>
+    <button (click)="setNewValues()">Update</button>
+    <button (click)="changeChart()">Change Chart</button>
   </div>
 </div>

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     console.log(e);
   }
 
-  public randomize(): void {
+  public setNewValues(): void {
     // Only Change 3 values
     const data = [
       Math.round(Math.random() * 100),
@@ -45,10 +45,12 @@ export class HomeComponent implements OnInit {
     clone[0].data = data;
     this.barChartData = clone;
   }
+  changeChart() {
+    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+  }
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
