@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Guild} from '../../guild/shared/guild.model';
 import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
 import {GuildService} from '../../guild/shared/guild.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GuildWork} from '../shared/guildWork.model';
 
 @Component({
@@ -83,13 +82,15 @@ export class GuildWorkComponent implements OnInit {
   saveGuildWork() {
     this.guildWork.volunteerId = this.volunteer.id;
     this.guildWork.guildId = this.guild.id;
-    this.guildWork.startDate = this.startMoment;
-    this.guildWork.endDate = this.endMoment;
+    this.guildWork.start = this.startMoment;
+    this.guildWork.end = this.endMoment;
 
-    if(this.guild.guildWorks == null) this.guild.guildWorks = [];
-    this.guild.guildWorks.push(this.guildWork);
+    if (this.guild.guildWork == null) this.guild.guildWork = [];
+    this.guild.guildWork.push(this.guildWork);
 
-    this.guildService.update(this.guild).subscribe(guild => console.log(
-      'Name: ' + guild.name + ' , GuildWork: ' + guild.guildWorks));
+    this.guildService.AddGuildWork(this.guildWork).subscribe(response =>
+    {
+      console.log("GuildWork added: " + response);
+    });
   }
 }
