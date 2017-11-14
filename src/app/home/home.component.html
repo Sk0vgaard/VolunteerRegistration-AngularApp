@@ -15,7 +15,8 @@
               [legend]="barChartLegend"
               [chartType]="barChartType"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+              (chartClick)="chartClicked($event)">
+      </canvas>
     </div>
     <button (click)="setNewValues()">Update</button>
     <button (click)="changeChart()">Change Chart</button>
