@@ -29,6 +29,11 @@ export class GuildmanagersComponent implements OnInit {
     this.isUpdateClicked = false;
   }
 
+  setUpdate($event) {
+    this.isUpdateClicked = !this.isUpdateClicked;
+    $event.stopPropagation();
+  }
+
   ngOnInit() {
     this.updateListOfGuildmanagers();
   }

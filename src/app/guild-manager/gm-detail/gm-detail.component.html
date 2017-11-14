@@ -7,36 +7,30 @@
         <li class="list-group-item">Guild Managed: Guild 1</li>
       </ul>
     </div>
-    <!--<div *ngIf="isUpdateable" class="card col-md-6">-->
-      <!--<form (ngSubmit)="updateVolunteer()" [formGroup]="volunteerGroup" novalidate>-->
-        <!--<div class="form-group">-->
-          <!--<ul class="list-group list-group-flush">-->
-            <!--<li class="list-group-item">-->
-              <!--Name: <input class="form-control" type="text" formControlName="name" placeholder="{{volunteer.name}}"-->
-                           <!--[ngClass]="{-->
-          <!--'is-invalid':isInvalid('name'),-->
-          <!--'is-valid':isValid('name')}">-->
-            <!--</li>-->
-            <!--<li class="list-group-item">-->
-              <!--Email: <input class="form-control" type="text" formControlName="email" placeholder="{{volunteer.email}}"-->
-                            <!--[ngClass]="{-->
-          <!--'is-invalid':isInvalid('email'),-->
-          <!--'is-valid':isValid('email')}">-->
-            <!--</li>-->
-            <!--<li class="list-group-item">-->
-              <!--Phone: <input class="form-control" type="text" formControlName="phone" placeholder="{{volunteer.phone}}"-->
-                            <!--[ngClass]="{-->
-          <!--'is-invalid':isInvalid('phone'),-->
-          <!--'is-valid':isValid('phone')}">-->
-            <!--</li>-->
-          <!--</ul>-->
-          <!--<div>-->
-            <!--<button type="submit" [disabled]="volunteerGroup.invalid" class="btn btn-outline-success">Save</button>-->
-            <!--<button type="button" class="btn btn-outline-warning" (click)="cancelUpdate()">Cancel</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</div>-->
+    <div *ngIf="isUpdateable" class="card col-md-6">
+      <form (ngSubmit)="updateGuildManager()" [formGroup]="guildManagerGroup" novalidate>
+        <div class="form-group">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Name: <input class="form-control" type="text" formControlName="name" placeholder="{{guildManager.name}}"
+                           [ngClass]="{
+          'is-invalid':isInvalid('name'),
+          'is-valid':isValid('name')}">
+            </li>
+            <li class="list-group-item">
+              Email: <input class="form-control" type="text" formControlName="email" placeholder="{{guildManager.email}}"
+                            [ngClass]="{
+          'is-invalid':isInvalid('email'),
+          'is-valid':isValid('email')}">
+            </li>
+          </ul>
+          <div>
+            <button type="submit" [disabled]="guildManagerGroup.invalid" class="btn btn-outline-success">Save</button>
+            <button type="button" class="btn btn-outline-warning" (click)="cancelUpdate()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <div class="col-md-6">
       <img src="http://via.placeholder.com/150x150" alt="..." class="img-thumbnail">
     </div>
