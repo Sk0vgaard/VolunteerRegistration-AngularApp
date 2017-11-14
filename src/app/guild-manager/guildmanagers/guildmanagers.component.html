@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div *ngIf="guildManagers.length > 0; else noGuildManagers" class="list-group">
+        <a class="list-group-item list-group-item-action"
+           *ngFor="let guildmanager of guildManagers; let i = index"
+           (click)="selectGuildmanager(guildmanager, i)"
+           [class.active]="i == selectedRow">
+          <h5><i class="fa fa-male" aria-hidden="true"></i> {{guildmanager.name}}
+            <button class="btn btn-outline-danger pull-right"
+            (click)="deleteGuildManager(guildmanager, $event)">
+              <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button class="btn btn-outline-warning pull-right"
+                    (click)="setUpdate($event)">
+              <i class="fa fa-pencil" aria-hidden="true"></i></button></h5>
+        </a>
+      </div>
+      <ng-template #noGuildManagers>
+        <h1>No Guildmanagers!</h1>
+      </ng-template>
+    </div>
+    <div class="col-md-8">
+      <app-gm-detail [guildManager]="selectedManager" [isUpdateable]="isUpdateClicked"></app-gm-detail>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-outline-success"
+      routerLink="/guildmanagers/create">
+        <i class="fa fa-plus" aria-hidden="true"></i> New
+      </button>
+    </div>
+  </div>
+</div>
