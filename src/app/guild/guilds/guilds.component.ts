@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Guild} from '../shared/guild.model';
 import {GuildService} from '../shared/guild.service';
+import {GuildWork} from "../../guild-work/shared/guildWork.model";
 
 @Component({
   selector: 'app-guilds',
@@ -12,6 +13,7 @@ export class GuildsComponent implements OnInit {
   selectedGuild: Guild;
   selectedRow: number;
   isUpdateClicked = false;
+  guildWorks: GuildWork[];
 
   constructor(private guildService: GuildService) { }
 
@@ -25,6 +27,7 @@ export class GuildsComponent implements OnInit {
     this.selectedGuild = guild;
     this.selectedRow = selectedRow;
     this.isUpdateClicked = false;
+    this.guildService.getGuildWorks(this.selectedGuild.id).subscribe(gw => this.guildWorks = gw);
   }
 
   setUpdate($event) {

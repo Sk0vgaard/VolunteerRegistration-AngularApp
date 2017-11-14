@@ -3,6 +3,7 @@ import {Guild} from '../../shared/guild.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GuildService} from '../../shared/guild.service';
 import {GuildsComponent} from '../guilds.component';
+import {GuildWork} from '../../../guild-work/shared/guildWork.model';
 
 @Component({
   selector: 'app-guild-detail',
@@ -11,8 +12,8 @@ import {GuildsComponent} from '../guilds.component';
 })
 export class GuildDetailComponent implements OnInit {
 
-   @Input()
-   guild: Guild;
+  @Input()
+  guild: Guild;
   @Input()
   isUpdateable = false;
 
@@ -26,7 +27,9 @@ export class GuildDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   updateGuild() {
     console.log('Saved has been clicked');

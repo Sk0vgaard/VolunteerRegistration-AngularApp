@@ -7,6 +7,8 @@ import { GuildDetailComponent } from './guilds/guild-detail/guild-detail.compone
 import { GuildCreateComponent } from './guilds/guild-create/guild-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {GuildService} from './shared/guild.service';
+import {GuildWorkDetailsComponent} from '../guild-work/guild-work-details/guild-work-details.component';
+import {GuildWorkModule} from '../guild-work/guild-work.module';
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import {GuildService} from './shared/guild.service';
     CommonModule,
     guildRoutes,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GuildWorkModule
   ],
   declarations:
     [GuildsComponent,
