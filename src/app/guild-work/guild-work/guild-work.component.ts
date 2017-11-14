@@ -3,6 +3,8 @@ import {Guild} from '../../guild/shared/guild.model';
 import {Volunteer} from '../../volunteer/shared/volunteer.model';
 import {VolunteerService} from '../../volunteer/shared/volunteer.service';
 import {GuildService} from '../../guild/shared/guild.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {GuildWork} from '../shared/guildWork.model';
 
 @Component({
   selector: 'app-guild-work',
@@ -25,13 +27,17 @@ export class GuildWorkComponent implements OnInit {
   guild: Guild;
   selectedGuildRow: number;
 
-  constructor(private volunteerService: VolunteerService, private guildService: GuildService) { }
+  guildWork: GuildWork;
+
+
+  constructor(private volunteerService: VolunteerService, private guildService: GuildService) {  }
 
   ngOnInit() {
     this.guilds = [];
     this.volunteers = [];
     this.updateVolunteerList();
     this.updateGuildList();
+    this.guildWork = new GuildWork;
   }
 
   updateVolunteerList() {
@@ -69,7 +75,21 @@ export class GuildWorkComponent implements OnInit {
     this.showEnd = true;
   }
 
+  ableToSave(): boolean {
+    if (this.guild != null && this.volunteer != null && this.showStart && this.showEnd) return true;
+    return false;
+  }
+
   saveGuildWork() {
-    console.log('Save guildWork clicked!');
+    this.guildWork.volunteerId = this.volunteer.id;
+    this.guildWork.guildId = this.guild.id;
+    this.guildWork.startDate = this.startMoment;
+    this.guildWork.endDate = this.endMoment;
+
+    if (this.guild.guildWorks == null) this.guild.guildWorks = [];
+    this.guild.guildWorks.push(this.guildWork);
+
+    this.guildService.update(this.guild).subscribe(guild => console.log(
+      'Name: ' + guild.name + ' , GuildWork: ' + guild.guildWorks));
   }
 }
