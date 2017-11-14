@@ -11,32 +11,50 @@ export class HomeComponent implements OnInit {
 
   guilds: Guild[];
   public barChartOptions: any = {
-    scaleShowVerticalLines: false,
-    responsive: true
+    scaleShowVerticalLines: true,
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 20
+        }
+      }]
+    }
   };
   public barChartLabels: string[] = [];
   public barChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData: any[] =  [
-    {data: [65], label: "test"}
+    {data: [65], label: "Test"},
+    {data: [65], label: "Test"}
   ];
 
   constructor(private guildService: GuildService) { }
 
   ngOnInit() {
+    let i = 0;
     this.guilds = [];
     this.guildService.get()
       .subscribe(guilds => {
-        guilds.forEach(g => {
-          guilds.push(g);
-          console.log(g.name);
-          if (this.guilds.length === 0) {
+        guilds.forEach(guild => {
+          console.log(guild.name);
+          if (i === 0) {
+            console.log("Data reset");
             this.barChartData = [];
-            // this.barChartLabels = [];
           }
-          this.barChartLabels.push(g.name);
-          this.barChartData.push({data: [65, 32, 12], label: g.name});
+          i++;
+          this.barChartLabels.push(guild.name);
+          if (guild.guildWork != null && guild.guildWork.length > 0) {
+            console.log("Will add GuildWork: " + guild.guildWork.length);
+            this.barChartData.push({data: [guild.guildWork.length], label: guild.name});
+          } else {
+            console.log("No GuildWork!");
+            this.barChartData.push(
+              {data: [0], label: guild.name});
+          }
+
         });
       });
   }
@@ -50,21 +68,6 @@ export class HomeComponent implements OnInit {
   }
   public chartHovered(e: any): void {
     console.log(e);
-  }
-
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    const clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
   }
 
 }

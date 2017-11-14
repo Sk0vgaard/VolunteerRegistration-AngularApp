@@ -1,10 +1,9 @@
-
 import {environment} from '../../../environments/environment';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Guild} from './guild.model';
-
+import {GuildWork} from '../../guild-work/shared/guildWork.model';
 
 const url = environment.RestAPI + '/guilds';
 
@@ -27,5 +26,9 @@ export class GuildService {
    delete(id: number): Observable<boolean> {
       console.log(url + '/' + id);
       return this.http.delete<Boolean>(url + '/' + id);
+   }
+
+   AddGuildWork(guildWork: GuildWork): Observable<boolean> {
+    return this.http.post<boolean>(url + '/guildWork', guildWork);
    }
 }
