@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-outline-info"
+              routerLink="/guilds">
+        Back
+      </button>
+      <form (ngSubmit)="saveGuild()"
+            [formGroup]="guildGroup" novalidate>
+        <div class="form-group">
+          <input class="form-control form-control-lg"
+                 formControlName="name"
+                 type="text"
+                 placeholder="Enter guild name"
+                 [ngClass]="{
+                 'is-invalid':isInvalid('name'),
+                 'is-valid':isValid('name')}">
+          <button class="btn btn-outline-danger pull-right" routerLink="/guilds">
+            Cancel
+          </button>
+          <button class="btn btn-outline-success pull-right" [disabled]="guildGroup.invalid" type="submit">
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-outline-info"
+              routerLink="/volunteers">Back</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <form (ngSubmit)="saveVolunteer()"
+            [formGroup]="volunteerGroup" novalidate>
+        <div class="form-group">
+          <input class="form-control form-control-lg"
+                 formControlName="name"
+                 type="text"
+                 placeholder="Enter your name"
+                 [ngClass]="{
+          'is-invalid':isInvalid('name'),
+          'is-valid':isValid('name')}">
+          <input class="form-control"
+                 formControlName="email"
+                 type="text"
+                 placeholder="Enter your email"
+                 [ngClass]="{
+          'is-invalid':isInvalid('email'),
+          'is-valid':isValid('email')}">
+          <input class="form-control form-control-sm"
+                 formControlName="phone"
+                 type="text"
+                 placeholder="phone"
+                 [ngClass]="{
+          'is-invalid':isInvalid('phone'),
+          'is-valid':isValid('phone')}">
+          <button class="btn btn-outline-danger pull-right"
+                  routerLink="/volunteers">Cancel</button>
+          <button class="btn btn-outline-success pull-right"
+                  [disabled]="volunteerGroup.invalid"
+                  type="submit">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">Volunteers</div>
+    <div class="col-md-3">Guilds</div>
+    <div class="col-md-3">Period</div>
+    <div class="col-md-3">Selected Details</div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let volunteer of volunteers; let i = index"
+            (click)="selectVolunteer(volunteer, i)">
+          {{volunteer.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <ul class="list-group" *ngFor="let guild of guilds; let i = index">
+        <li class="list-group-item" (click)="selectGuild(guild, i)">
+          {{guild.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <div (click)="setStart()">
+        <h5>Start time:</h5>
+        <owl-date-time [(ngModel)]="startMoment"></owl-date-time>
+      </div>
+      <div (click)="setEnd()">
+        <h5 class="top-buffer">End time:</h5>
+        <owl-date-time [(ngModel)]="endMoment"></owl-date-time>
+      </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">
+            Volunteer:
+          </div>
+          <div class="card-body">
+            <div *ngIf="volunteer != null">
+              {{volunteer.name}}
+            </div>
+            <div *ngIf="volunteer == null">
+              No volunteer selected
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Guild:
+          </div>
+          <div class="card-body">
+            <div *ngIf="guild != null">
+              {{guild.name}}
+            </div>
+            <div *ngIf="guild == null">
+              No guild selected
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Period:
+          </div>
+          <div class="card-body">
+            <div *ngIf="showStart">
+              Start: {{startMoment.toLocaleDateString()}} {{startMoment.toLocaleTimeString()}}
+            </div>
+            <div *ngIf="!showStart">
+              Select a start date.
+            </div>
+            <div *ngIf="showEnd">
+              End: {{endMoment.toLocaleDateString()}} {{endMoment.toLocaleTimeString()}}
+            </div>
+            <div *ngIf="!showEnd">
+              Select an end date.
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="pull-right">
+          <button class="btn btn-outline-success" *ngIf="ableToSave()" (click)="saveGuildWork()">Save</button>
+          <button class="btn btn-outline-warning" (click)="clearSelectedDetails()">Clear</button>
+        </div>
+    </div>
+  </div>
+</div>

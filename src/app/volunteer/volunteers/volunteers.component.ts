@@ -11,11 +11,13 @@ export class VolunteersComponent implements OnInit {
   volunteers: Volunteer[];
   selectedVolunteer: Volunteer;
   selectedRow: number;
+  isUpdateClicked = false;
 
   constructor(private volunteerService: VolunteerService) { }
 
 
   ngOnInit() {
+    this.volunteers = [];
     this.volunteerService.get()
       .subscribe(volunteers => this.volunteers = volunteers);
   }
@@ -23,5 +25,22 @@ export class VolunteersComponent implements OnInit {
   selectVolunteer(volunteer: Volunteer, selectedRow: number) {
     this.selectedVolunteer = volunteer;
     this.selectedRow = selectedRow;
+    this.isUpdateClicked = false;
+  }
+
+  setUpdate($event) {
+    this.isUpdateClicked = !this.isUpdateClicked;
+    $event.stopPropagation();
+  }
+
+  updateListOfVolunteers(){
+    this.volunteerService.get()
+      .subscribe(volunteers => this.volunteers = volunteers);
+  }
+
+  deleteVolunteer($event , volunteer: Volunteer) {
+    this.volunteerService.delete(volunteer.id).subscribe(() => this.updateListOfVolunteers());
+    this.selectedVolunteer = null;
+    $event.stopPropagation();
   }
 }

@@ -7,6 +7,10 @@ import {appRoutes} from './app.routing';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {VolunteerModule} from './volunteer/volunteer.module';
+import {GuildModule} from './guild/guild.module';
+import {GuildWorkModule} from './guild-work/guild-work.module';
+import {ChartsModule} from 'ng2-charts';
+import {GuildManagerModule} from './guild-manager/guild-manager.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import {VolunteerModule} from './volunteer/volunteer.module';
   imports: [
     BrowserModule,
     appRoutes,
-    VolunteerModule
+    VolunteerModule,
+    GuildModule,
+    GuildWorkModule,
+    ChartsModule,
+    GuildManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

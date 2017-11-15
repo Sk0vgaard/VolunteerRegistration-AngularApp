@@ -14,4 +14,18 @@ export class VolunteerService {
   get(): Observable<Volunteer[]> {
     return this.http.get<Volunteer[]>(url);
   }
+
+  create(volunteer: Volunteer): Observable<Volunteer> {
+    return this.http.post<Volunteer>(url, volunteer);
+  }
+
+  update(volunteer: Volunteer): Observable<Volunteer> {
+    console.log(volunteer.id);
+    return this.http.put<Volunteer>(url + '/' + volunteer.id, volunteer);
+  }
+
+  delete(id: number): Observable<boolean> {
+    console.log(url + '/' + id);
+    return this.http.delete<Boolean>(url + '/' + id);
+  }
 }
